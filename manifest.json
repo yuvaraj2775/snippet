@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Snippet Saver",
+  "version": "1.2",
+  "description": "Save and automate notes while browsing",
+  "permissions": ["storage", "downloads", "contextMenus", "scripting", "activeTab", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snippet Saver</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="popup.css">
+    <script src="popup.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h3><i class="fas fa-sticky-note"></i> Snippet Saver</h3>
+        <input id="title" placeholder="Enter title (optional)" />
+        <textarea id="snippetText" placeholder="Enter or paste text..."></textarea>
+        <button id="saveSnippet"><i class="fas fa-save"></i> Add Snippet</button>
+        <button id="downloadSnippets"><i class="fas fa-download"></i> Download All</button>
+        <h4><i class="fas fa-list"></i> Stored Snippets</h4>
+        <input id="search" placeholder="Search snippets..." />
+        <div id="snippets">No snippets yet.</div>
+        <div id="popup-msg"></div>
+    </div>
+</body>
+</html>
