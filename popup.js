@@ -49,7 +49,7 @@ function loadSnippets() {
         let parts = s.split("\n");
         let timestamp = parts[0];
         let title = parts[1].startsWith("[Title:") ? parts[1].slice(7, -1) : "";
-        let offset = title ? 1 : 0; // No category, adjust offset
+        let offset = title ? 1 : 0;
         let text = parts.slice(1 + offset).join("\n");
         return `<div class="snippet-item" data-index="${index}">
                     <div class="snippet-actions-top">
@@ -57,8 +57,8 @@ function loadSnippets() {
                         <button class="delete" data-index="${index}"><i class="fas fa-trash"></i></button>
                         <button class="download" data-index="${index}"><i class="fas fa-download"></i></button>
                     </div>
+                     ${title ? `<div class="category">Title: ${title}</div>` : ""}
                     <div class="timestamp">${timestamp}</div>
-                    ${title ? `<div class="category">Title: ${title}</div>` : ""}
                     <div>${text}</div>
                 </div>`;
       }).join("");
@@ -76,7 +76,7 @@ function attachSnippetActions() {
       chrome.runtime.sendMessage({ action: "getSnippet", index }, (response) => {
         let parts = response.snippet.split("\n");
         let title = parts[1].startsWith("[Title:") ? parts[1].slice(7, -1) : "";
-        let offset = title ? 1 : 0; // No category, adjust offset
+        let offset = title ? 1 : 0;
         let text = parts.slice(1 + offset).join("\n");
         document.getElementById("snippetText").value = text;
         document.getElementById("title").value = title;
@@ -116,7 +116,7 @@ function filterSnippets() {
           let parts = s.split("\n");
           let timestamp = parts[0];
           let title = parts[1].startsWith("[Title:") ? parts[1].slice(7, -1) : "";
-          let offset = title ? 1 : 0; // No category, adjust offset
+          let offset = title ? 1 : 0;
           let text = parts.slice(1 + offset).join("\n");
           return `<div class="snippet-item" data-index="${index}">
                       <div class="snippet-actions-top">
@@ -124,8 +124,8 @@ function filterSnippets() {
                           <button class="delete" data-index="${index}"><i class="fas fa-trash"></i></button>
                           <button class="download" data-index="${index}"><i class="fas fa-download"></i></button>
                       </div>
+                       ${title ? `<div class="category">Title: ${title}</div>` : ""}
                       <div class="timestamp">${timestamp}</div>
-                      ${title ? `<div class="category">Title: ${title}</div>` : ""}
                       <div>${text}</div>
                   </div>`;
         }).join("")

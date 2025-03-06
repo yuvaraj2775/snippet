@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
     width: 340px;
+    height: 500px;
     background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -75,7 +76,7 @@ button:hover {
 #snippets {
     background: #fff;
     padding: 10px;
-    max-height: 160px;
+    max-height: 320px;
     overflow-y: auto;
     border-radius: 6px;
     border: 1px solid #e2e8f0;
@@ -84,6 +85,7 @@ button:hover {
 
 .snippet-item {
     padding: 12px;
+    min-height: 120px; /* Increased height to make text more visible */
     border-bottom: 1px solid #edf2f7;
     background: #fafafa;
     border-radius: 4px;
@@ -97,13 +99,19 @@ button:hover {
 
 .timestamp {
     font-size: 12px;
-    color: #718096;
+    color: #252d3a;
 }
 
 .category {
-    font-size: 12px;
+    font-size: 14px; /* Slightly larger font for better readability */
     color: #a0aec0;
     font-style: italic;
+}
+
+.category:where(:has(> :contains("Title:"))) {
+    font-weight: bold; /* Makes "Title: [title]" bold */
+    color: #2d3748; /* Darker color for contrast */
+    font-style: normal; /* Remove italic for titles */
 }
 
 .snippet-actions-top {
